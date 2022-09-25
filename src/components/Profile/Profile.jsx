@@ -1,9 +1,15 @@
 import {
+  Box,
   ProfileBox,
   InfoContainer,
   Image,
   InfoBlock,
   UserName,
+  UserNickName,
+  UserLocation,
+  InfoBlockItem,
+  Label,
+  Numbers,
 } from './Profile.styled';
 import PropTypes from 'prop-types';
 
@@ -15,28 +21,30 @@ export const Profile = ({
   stats: { followers, views, likes },
 }) => {
   return (
-    <ProfileBox>
-      <InfoContainer class="description">
-        <Image src={avatar} alt={username} class="avatar" />
-        <UserName class="name">{username}</UserName>
-        <p class="tag">{tag}</p>
-        <p class="location">{location}</p>
-      </InfoContainer>
-      <InfoBlock class="stats">
-        <li>
-          <span class="label">Followers</span>
-          <span class="quantity">{followers} </span>
-        </li>
-        <li>
-          <span class="label">Views</span>
-          <span class="quantity">{views} </span>
-        </li>
-        <li>
-          <span class="label">Likes</span>
-          <span class="quantity">{likes} </span>
-        </li>
-      </InfoBlock>
-    </ProfileBox>
+    <Box>
+      <ProfileBox>
+        <InfoContainer>
+          <Image src={avatar} alt={username} />
+          <UserName>{username}</UserName>
+          <UserNickName>{tag}</UserNickName>
+          <UserLocation>{location}</UserLocation>
+        </InfoContainer>
+        <InfoBlock>
+          <InfoBlockItem>
+            <Label>Followers</Label>
+            <Numbers>{followers}</Numbers>
+          </InfoBlockItem>
+          <InfoBlockItem>
+            <Label>Views</Label>
+            <Numbers>{views}</Numbers>
+          </InfoBlockItem>
+          <InfoBlockItem>
+            <Label>Likes</Label>
+            <Numbers>{likes}</Numbers>
+          </InfoBlockItem>
+        </InfoBlock>
+      </ProfileBox>
+    </Box>
   );
 };
 
