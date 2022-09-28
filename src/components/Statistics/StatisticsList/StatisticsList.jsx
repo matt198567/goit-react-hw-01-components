@@ -12,7 +12,7 @@ export const StatisticsList = ({ stats }) => {
   );
 };
 
-StatisticsList.protoTypes = {
+StatisticsList.propTypes = {
   stats: PropTypes.arrayOf(
     PropTypes.exact({
       label: PropTypes.string.isRequired,

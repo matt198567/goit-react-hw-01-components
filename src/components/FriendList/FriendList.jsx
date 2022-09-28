@@ -1,4 +1,4 @@
-import { Box, Marker, Img, UserName } from './FriendList.styled';
+import { FriendItem } from './FriendItem/FriendItem';
 import PropTypes from 'prop-types';
 
 export const FriendList = ({ friends }) => {
@@ -11,17 +11,7 @@ export const FriendList = ({ friends }) => {
   );
 };
 
-export const FriendItem = ({ item }) => {
-  return (
-    <Box>
-      <Marker isOnline={item.isOnline}></Marker>
-      <Img src={item.avatar} alt={item.name} width="48" />
-      <UserName>{item.name}</UserName>
-    </Box>
-  );
-};
-
-FriendList.protoTypes = {
+FriendList.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.exact({
       avatar: PropTypes.string.isRequired,
@@ -30,13 +20,4 @@ FriendList.protoTypes = {
       id: PropTypes.number.isRequired,
     })
   ).isRequired,
-};
-
-FriendItem.protoTypes = {
-  item: PropTypes.exact({
-    avatar: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    isOnline: PropTypes.bool.isRequired,
-    id: PropTypes.number.isRequired,
-  }).isRequired,
 };

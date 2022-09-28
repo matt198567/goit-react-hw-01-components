@@ -10,7 +10,7 @@ export const StatisticsItem = ({ item }) => {
   );
 };
 
-StatisticsItem.protoTypes = {
+StatisticsItem.propTypes = {
   item: PropTypes.exact({
     label: PropTypes.string.isRequired,
     percentage: PropTypes.number.isRequired,
