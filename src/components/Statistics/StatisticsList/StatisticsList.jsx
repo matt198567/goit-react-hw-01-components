@@ -5,8 +5,10 @@ import { List } from './StatisticsList.styled';
 export const StatisticsList = ({ stats }) => {
   return (
     <List>
-      {stats.map(item => {
-        return <StatisticsItem key={item.id} item={item} />;
+      {stats.map(({ id, label, percentage }) => {
+        return (
+          <StatisticsItem key={id} label={label} percentage={percentage} />
+        );
       })}
     </List>
   );
